@@ -28,8 +28,6 @@ OctoFit Tracker is a three-tier application for a school fitness program. The st
 
 ## Implementation decisions
 
-Record your plan here before editing code.
-
 - **Presentation tier decision**: Build React components for Activities, Teams, Leaderboard, and Workouts pages. Each page will have a form to create records and a list/table to display them. Use the shared API client to fetch and submit data. Display "Implementation pending" placeholders until API endpoints are working.
 
 - **Logic tier decision**: Implement Express routes with TypeScript services for validation and business logic. All invalid input (missing fields, invalid IDs) responds with deliberate 4xx errors (never 500 from cast failures). Routes handle the full API contract: activities (CRUD + points calculation), teams (CRUD + member management), leaderboard (aggregation by points), and workout suggestions (pattern matching).
@@ -45,8 +43,6 @@ Record your plan here before editing code.
 - **Workout suggestions approach**: GET /api/workouts/suggestions/:userEmail finds the user by email, analyzes their recent activity types and goal, selects a workout that matches, and returns {suggestions: [{title, focus, reason, difficulty, minutes}]}, where reason explains the recommendation based on activity pattern or goal.
 
 ## Test plan
-
-Record the commands you run and what each failure means.
 
 - **Data-tier command**: `npm run test:data --prefix octofit-tracker/backend`
   - Currently: 4 failed (User, Team, Activity, Workout schemas lack validators)
